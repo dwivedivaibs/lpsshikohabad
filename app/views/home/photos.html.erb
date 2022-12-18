@@ -1,0 +1,41 @@
+<div id="content" class="site-content">
+  <div class="hmc-container">
+    <div>
+      <div class="container mt-5">
+        <% if @gallery_image.present? %>
+          <section>
+            <h2 class="text-center"><b>Photos Gallery</b></h2>
+            <hr>
+          </section>
+          <section>      
+            <div class="row">
+              <% @gallery_image.each do |gallery_image| %>
+              <div class="col-lg-3 col-md-4 col-xs-6 mt-5">
+                <h4 class="text-center text-muted"><b><%= gallery_image.title %></b></h4>
+                <%= link_to "javascript:void(0);", class: "show_media", data: { toggle: "modal", target: "#mediaModal", id: gallery_image.id, class_name: gallery_image.class.name, url: gallery_images_path, file_type: "image" } do %>
+                  <%= image_tag(gallery_image.image.url, class: "img-thumbnail gallery-media") %>
+                <% end %>
+                <p>
+                  <h5>
+                    <% if gallery_image.description && gallery_image.description.length > 100 %>
+                      <%= "#{gallery_image.description.first(100)}..." %>
+                    <% else %>
+                      <%= gallery_image.description %>
+                    <% end %>
+                  </h5>
+                </p>
+              </div>
+              <% end %>
+            </div>
+          </section>
+        <% else %>
+          <section>
+            <h4 class="text-center text-muted">Photos not found</h4>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- .hmc-container -->
+</div>
+<!-- #content -->
