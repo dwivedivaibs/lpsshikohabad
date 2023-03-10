@@ -1,5 +1,5 @@
 # Change these
-server '43.205.143.208', port: 22, roles: [:web, :app, :db], primary: true
+server '65.2.9.187', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,'git@github.com:dwivedivaibs/lpsshikohabad.git'
 set :application,     'lpsshikohabad'

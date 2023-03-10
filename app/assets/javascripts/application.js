@@ -18,10 +18,3 @@
 //= require activestorage
 //= require turbolinks
 //= require ckeditor/config
-
-//= require_tree .
-
-$(window).load(function() {
-	var preloader = $("#preloader");
-	preloader.delay(500).fadeOut();
-});
